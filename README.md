@@ -1,1 +1,1 @@
-# pizzaGPT
+# PizzaGPT
