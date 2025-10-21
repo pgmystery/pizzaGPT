@@ -6,11 +6,12 @@ requires-python = ">=3.13"
 dependencies = [
     "fastmcp>=2.12.5",
     "langchain>=1.0.1",
+    "python-dotenv>=1.1.1",
     "sqlmodel>=0.0.27",
 ]
 
 [tool.uv.workspace]
 members = [
-    "apps/pizzagpt-client",
-    "apps/pizzagpt-mcp",
+    "apps/pizzagpt_client",
+    "apps/pizzagpt_mcp",
 ]

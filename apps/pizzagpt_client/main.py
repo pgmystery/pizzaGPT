@@ -1,5 +1,5 @@
 def main():
-    print("Hello from pizzagpt-client!")
+    print("Hello from pizzagpt_client!")
 
 
 if __name__ == "__main__":
