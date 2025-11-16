@@ -57,3 +57,33 @@ def get_customer(id: str) -> Dict[str, Any]:
         if not c:
             return {"ok": False, "error": "customer not found"}
         return {"ok": True, "customer": _to_dict(c)}
+
+
+@mcp.tool(
+    name="customers.list",
+    description="List customers from the database with optional pagination.",
+)
+def list_customers(
+    limit: int = 100,
+    offset: int = 0,
+) -> Dict[str, Any]:
+    """
+    List customers from the database.
+
+    Args:
+        limit: Maximum number of customers to return (default 100).
+        offset: Number of customers to skip before starting to collect the result set.
+
+    Returns:
+        A dict with:
+          - ok: bool
+          - customers: list of customer dicts (see _to_dict)
+    """
+    init_db()
+    with Session(get_engine()) as session:
+        stmt = select(Customer).offset(offset).limit(limit)
+        customers = session.exec(stmt).all()
+        return {
+            "ok": True,
+            "customers": [_to_dict(c) for c in customers],
+        }

@@ -3,5 +3,19 @@ name = "pizzagpt-mcp"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
+authors = [
+    { name = "pgmystery", email = "philipp.glaw@gmx.de" }
+]
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "fastmcp>=2.13.1",
+    "python-dotenv>=1.2.1",
+    "sqlmodel>=0.0.27",
+]
+
+[project.scripts]
+pizzagpt-mcp = "pizzagpt_mcp:main"
+
+[build-system]
+requires = ["uv_build>=0.9.8,<0.10.0"]
+build-backend = "uv_build"
